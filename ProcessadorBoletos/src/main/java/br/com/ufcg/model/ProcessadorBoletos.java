@@ -15,7 +15,6 @@ public class ProcessadorBoletos {
         double valorPago = this.fatura.getValorPago();
         double valorBoletos = 0;
         for(Boleto boleto: boletos){
-            boleto.setTipoPagamento("BOLETO");
             this.pagamentos.add(boleto);
             valorBoletos += boleto.getValor();
         }
