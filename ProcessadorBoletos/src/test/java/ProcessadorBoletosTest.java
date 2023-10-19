@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ArrayList;
+import br.com.ufcg.model.TipoPagamento;
 
 public class ProcessadorBoletosTest {
 
@@ -78,7 +79,7 @@ public class ProcessadorBoletosTest {
         List<Boleto> pagamentos = processadorBoletos.getPagamentos();
         assertTrue(pagamentos.size() == 4);
         for(Boleto boleto : pagamentos){
-            if(boleto.getTipoPagamento() != "BOLETO"){
+            if(!boleto.getTipoPagamento().equals(TipoPagamento.BOLETO)){
                 tiposCorreto = false;
                 break;
             }
