@@ -4,11 +4,21 @@ import java.util.ArrayList;
 
 public class ProcessadorBoletos {
     private Fatura fatura;
-    private List<Pagamento> pagamentos;
+    private List<Boleto> pagamentos;
 
     public ProcessadorBoletos(Fatura fatura){
         this.fatura = fatura;
         this.pagamentos = new ArrayList<>();
     }
     
+    public void processarBoletos(List<Boleto> boletos){
+        double valorPago = this.fatura.getValorPago();
+        double valorBoletos = 0;
+        for(Boleto boleto: boletos){
+            boleto.setTipoPagamento("BOLETO");
+            this.pagamentos.add(boleto);
+            valorBoletos += boleto.getValor();
+        }
+        this.fatura.setValorPago(valorPago+valorBoletos);
+    }
 }
