@@ -12,6 +12,10 @@ public class Boleto extends Pagamento{
     public long getCodigo(){
         return this.codigo;
     }
+
+    public String getTipoPagamento(){
+        return "BOLETO";
+    }
     
 }
 
